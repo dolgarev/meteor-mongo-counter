@@ -40,7 +40,7 @@ if (!(Mongo.Collection.incrementCounter && Mongo.Collection.incrementCounter.con
 }
 
 if (!(Mongo.Collection.decrementCounter && Mongo.Collection.decrementCounter.constructor === Function)) {
-  Mongo.Collection.decrementCounter = function (collectionName, counterName, step = -1, isUpsert = true) {
+  Mongo.Collection.decrementCounter = function (collectionName, counterName, step = 1, isUpsert = true) {
     const collection = _getMongoCollectionByName(collectionName)
     const res = Meteor.wrapAsync(callback => {
       collection.findOneAndUpdate({
